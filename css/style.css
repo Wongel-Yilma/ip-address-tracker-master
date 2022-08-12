@@ -1,0 +1,117 @@
+/* - Very Dark Gray: hsl(0, 0%, 17%)
+- Dark Gray: hsl(0, 0%, 59%)
+ */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+:root {
+  --gray-dark: hsl(0, 0%, 17%);
+  --gray-light: hsl(0, 0%, 59%);
+  --white: #fff;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.8rem;
+  font-family: 'Rubik';
+  background-color: beige;
+}
+.header {
+  height: 25vh;
+  background-image: url('../images/pattern-bg.png');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-shadow: 1rem 0 2rem rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.heading-1 {
+  color: var(--white);
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  outline: none;
+}
+.form {
+  margin: 0 auto 8rem;
+  width: 35%;
+  display: flex;
+  gap: 0;
+  box-shadow: 1rem 0 2rem rgba(0, 0, 0, 0.08);
+}
+.form-input {
+  outline: none;
+  border: none;
+  width: 85%;
+  height: 5rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  margin-bottom: 2rem;
+  padding-left: 2rem;
+  font-size: 1.8rem;
+  font-family: 'Rubik';
+}
+.btn-search {
+  width: 5rem;
+  border: none;
+  height: 5rem;
+  background-color: var(--gray-dark);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.data-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 80%;
+  background-color: var(--white);
+  height: 60%;
+  border-radius: 2rem;
+  transform: translate(-50%, 50%);
+  box-shadow: 1rem 0 2rem rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+}
+.data-box {
+  margin: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.data-box:not(:last-child) {
+  border-right: 1px solid #ddd;
+}
+.heading-2 {
+  font-size: 1.6rem;
+  color: var(--gray-light);
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+.data {
+  font-size: 3.2rem;
+  font-weight: 500;
+}
+
+main {
+  height: 75vh;
+}
+#map {
+  width: 100%;
+  flex: 1;
+  height: 100%;
+}
