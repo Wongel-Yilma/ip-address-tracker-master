@@ -22,7 +22,7 @@ html {
 body {
   font-size: 1.8rem;
   font-family: 'Rubik';
-  background-color: beige;
+  background-color: #ddd;
 }
 .header {
   height: 25vh;
@@ -52,6 +52,7 @@ body {
   box-shadow: 1rem 0 2rem rgba(0, 0, 0, 0.08);
 }
 .form-input {
+  cursor: pointer;
   outline: none;
   border: none;
   width: 85%;
@@ -64,12 +65,17 @@ body {
   font-family: 'Rubik';
 }
 .btn-search {
+  cursor: pointer;
   width: 5rem;
   border: none;
   height: 5rem;
   background-color: var(--gray-dark);
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
+}
+.btn-search:hover {
+  background-color: var(--gray-light);
+  opacity: 0.8;
 }
 
 .data-container {
@@ -97,10 +103,7 @@ body {
   border-right: 1px solid #ddd;
 }
 .data-detail {
-  padding-right: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 }
 .heading-2 {
   font-size: 1.6rem;
@@ -121,4 +124,11 @@ main {
   width: 100%;
   flex: 1;
   height: 100%;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
 }
