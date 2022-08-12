@@ -6,6 +6,7 @@ const formEl = document.querySelector('.form');
 const formInput = document.querySelector('.form-input');
 const dataDetail = document.querySelectorAll('.data-detail');
 const searchBtn = document.querySelector('.btn-search');
+const mapEl = document.querySelector('#map');
 
 const getCurrentIPAddress = async function () {
   const res = await fetch('https://api.ipify.org?format=json');
@@ -77,11 +78,10 @@ class App {
   _getCurrentLocation() {
     (async function () {
       try {
+        this._renderSpinner(mapEl);
         Array.from(dataDetail).forEach(el => this._renderSpinner(el));
         const ip = await getCurrentIPAddress();
-        console.log(ip);
         const data = await getLocation(ip);
-        console.log(data);
         this.#state = await this._createLocationObject(data);
         this._renderLocation();
         this._renderMap();
@@ -104,16 +104,6 @@ class App {
     };
   }
   _renderLocation() {
-    //  const markups =ipAddressMarkup = `<p class="data location">${this.#state.ip}</p>`
-    //  const locationMarkup = `<p class="data location">${
-    //    this.#state.location.city
-    //  }, ${this.#state.location.country} \n${
-    //    this.#state.location.geonameId
-    //  } </p>`;
-    //  const timezoneMarkup = `<p class="data">GMT${
-    //    this.#state.timezone
-    //  }</p>`;
-    //  const ispMarkup = `<p class="data">${this.#state.isp}</p>`;
     const dataArr = Array.from(dataDetail).entries();
     const markups = [
       `<p class="data location">${this.#state.ip}</p>`,
@@ -126,12 +116,6 @@ class App {
     for (let [index, data] of dataArr) {
       data.innerHTML = markups[index];
     }
-    //  ipAddressEl.innerHTML = `${this.#state.ip}`;
-    //  locationEl.innerHTML = `${this.#state.location.city}, ${
-    //    this.#state.location.country
-    //  } \n${this.#state.location.geonameId} `;
-    //  timezoneEl.innerHTML = `GMT${this.#state.timezone}`;
-    //  ispEl.innerHTML = `${this.#state.isp}`;
   }
   _renderMap() {
     if (this.#map) this._clearMap();
@@ -167,10 +151,11 @@ class App {
   }
   _clearMap() {
     this.#map.remove();
+    mapEl.innerHTML = '';
   }
   _renderSpinner(el) {
     const markup = `
-         <div class="spinner">
+         <div class="spinner" style="font-size:48px;">
             <i class="fa fa-circle-o-notch fa-spin" style="font-size: 24px"></i>
          </div>`;
     el.insertAdjacentHTML('afterbegin', markup);
