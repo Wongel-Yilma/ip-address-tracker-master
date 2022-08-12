@@ -2,13 +2,10 @@
 //////////////////////////////////////////
 /// Include DOM Elements in javascript
 
-// const ipAddressEl = document.querySelector('.ip-address');
-// const locationEl = document.querySelector('.location');
-// const timezoneEl = document.querySelector('.timezone');
-// const ispEl = document.querySelector('.isp');
 const formEl = document.querySelector('.form');
 const formInput = document.querySelector('.form-input');
 const dataDetail = document.querySelectorAll('.data-detail');
+const searchBtn = document.querySelector('.btn-search');
 
 const getCurrentIPAddress = async function () {
   const res = await fetch('https://api.ipify.org?format=json');
@@ -74,7 +71,8 @@ class App {
   #errorMessage = 'Server took too long to respond';
   constructor() {
     this._getCurrentLocation();
-    formEl.addEventListener('click', this._inputIpAddressHandler.bind(this));
+    formEl.addEventListener('submit', this._inputIpAddressHandler.bind(this));
+    searchBtn.addEventListener('click', this._inputIpAddressHandler.bind(this));
   }
   _getCurrentLocation() {
     (async function () {
