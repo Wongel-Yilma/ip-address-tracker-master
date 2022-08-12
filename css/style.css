@@ -80,7 +80,7 @@ body {
   grid-template-columns: repeat(4, 1fr);
   width: 80%;
   background-color: var(--white);
-  height: 60%;
+  height: 70%;
   border-radius: 2rem;
   transform: translate(-50%, 50%);
   box-shadow: 1rem 0 2rem rgba(0, 0, 0, 0.12);
