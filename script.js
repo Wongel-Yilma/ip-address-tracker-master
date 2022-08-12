@@ -19,7 +19,7 @@ const timeout = function () {
   return new Promise(function (_, reject) {
     setTimeout(function () {
       reject(new Error('The server took too long to respond'));
-    }, 3000);
+    }, 30000);
   });
 };
 

@@ -1,0 +1,37 @@
+@media (max-width: 59em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (max-width: 37.5em) {
+  html {
+    font-size: 40%;
+  }
+  .header {
+    padding-top: 3rem;
+    height: 35vh;
+    justify-content: flex-start;
+  }
+  .heading-1 {
+    font-size: 3.2rem;
+  }
+  .form {
+    width: 80%;
+  }
+  .data-container {
+    width: 75%;
+    grid-template-columns: 1fr;
+    height: 50rem;
+    align-items: center;
+    gap: 0;
+
+    /* height: 40rem; */
+  }
+  .data-box {
+    margin: 2rem;
+  }
+  .heading-2,
+  .data {
+    text-align: center;
+  }
+}
